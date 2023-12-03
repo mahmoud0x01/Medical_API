@@ -1,0 +1,22 @@
+# config/database.yml
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: <%= ENV['POSTGRESQL_USERNAME'] %>
+  password: <%= ENV['POSTGRESQL_PASSWORD'] %>
+  host: <%= ENV['POSTGRESQL_HOST'] %>
+  port: <%= ENV['POSTGRESQL_PORT'] %>
+
+development:
+  <<: *default
+  database: medical_consultation_service_development
+
+test:
+  <<: *default
+  database: medical_consultation_service_test
+
+production:
+  <<: *default
+  database: medical_consultation_service_production
