@@ -9,7 +9,6 @@ recommendation_text = gets.chomp
 request_params = {
 	recommendation_text: recommendation_text
 }
-consultation_request_id = 3
 
 # Convert the request parameters to JSON
 request_body = request_params.to_json
