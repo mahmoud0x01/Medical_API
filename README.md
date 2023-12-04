@@ -17,7 +17,7 @@
 # Установка : 
 
 - прежде всего клонируйте репозиторий с помощью **git** : `git clone https://github.com/mahmoud0x01/Medical_API.git && cd Medical_API/`
-- отредактируйте переменные среды в файле **ext_conf.sh** в соответствии с конфигурацией вашего сервера Postgresql : 
+- отредактируйте переменные среды в файле `ext_conf.sh` в соответствии с конфигурацией вашего сервера Postgresql : 
   - **POSTGRESQL_USERNAME**
   - **POSTGRESQL_PASSWORD**
   - **POSTGRESQL_PORT**
