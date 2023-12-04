@@ -14,7 +14,7 @@
 
 
 
-# Установка
+# Установка : 
 
 - прежде всего клонируйте репозиторий с помощью **git** : `git clone https://github.com/mahmoud0x01/Medical_API.git && cd Medical_API/`
 - отредактируйте переменные среды в файле **ext_conf.sh** в соответствии с конфигурацией вашего сервера Postgresql : 
@@ -32,3 +32,20 @@
 
 теперь вы должны увидеть сообщение типа «сервер запущен
 
+# Рабочий процесс API :
+- сначала создайте запрос на консультацию, используя POST  `http://127.0.0.1:3000/consultation_requests`
+- Затем вы можете, если вы врач, ответить на консультацию по идентификатору **request_id** , используя POST `http://127.0.0.1:3000/consultation_requests/:request_id/recommendations`
+- далее вы сможете увидеть любую доступную рекомендацию для пациента по идентификации **patient_id** используя GET `http://127.0.0.1:3000/patients/:patient_id/recommendations/`
+- если пользователь не получил рекомендации и вы хотите, чтобы API искал его с использованием внешних источников данных **OpenFDA** посетите `http://127.0.0.1:3000/patients/:patient_id/recommendations/` и если пользователь не получил рекомендации. API получит его для этого. просто перезагрузи тот же запрос GET чтобы получить новые полученные результаты
+
+
+# тестирование :
+
+**файлы внутри папки** `ext_test/` **Я написал внешнее использование для тестирования основных конечных точек API.** 
+`cd ext_test/`
+- GET `http://127.0.0.1:3000/patients/:patient_id/recommendations/` чтобы сделать тест , просто откройте URL-адрес в браузере и укажите **Patient_id** 
+- POST  `http://127.0.0.1:3000/consultation_requests` чтобы сделать тест. выполнить скрипт **consultation_requests_tester.rb** `ruby consultation_requests_tester.rb`
+- POST  `http://127.0.0.1:3000/consultation_requests/:request_id/recommendations` чтобы сделать тест. выполнить скрипт **recommendation_post_tester.rb** `ruby recommendation_post_tester.rb`
+
+
+  
